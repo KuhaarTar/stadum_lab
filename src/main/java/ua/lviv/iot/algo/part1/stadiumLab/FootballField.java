@@ -8,12 +8,12 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
 public class FootballField extends SportComplex{
 
-    int length;
-    int width;
-    String typeFieldCoverage;
+    private int length;
+    private int width;
+    private String typeFieldCoverage;
 
     public FootballField(String name, int capacity, int currentAttendance,
                          int length, int width, String typeFieldCoverage) {
