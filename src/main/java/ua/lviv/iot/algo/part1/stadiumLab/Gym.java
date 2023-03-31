@@ -8,7 +8,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @NoArgsConstructor
-@ToString
+@ToString(callSuper = true)
 public class Gym extends SportComplex {
     private int countOfSimulator;
     private String monthlySubscriptionFee;
