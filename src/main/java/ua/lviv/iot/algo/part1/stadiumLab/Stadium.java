@@ -1,19 +1,29 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Stadium {
+@ToString(callSuper = true)
+public class Stadium extends SportComplex {
     private String name;
     private int capacity;
     private int currentAttendance;
     private String homeTeam;
     private String awayTeam;
     private static Stadium instance;
+
+    public Stadium(String name, int capacity, int currentAttendance, String homeTeam, String awayTeam) {
+        this.name = name;
+        this.capacity = capacity;
+        this.currentAttendance = currentAttendance;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
+    }
 
     static Stadium getInstance() {
         if (instance == null) {
@@ -46,15 +56,8 @@ public class Stadium {
         awayTeam = teamName;
     }
 
-
-    public static void main(String[] args) {
-        var stadiums = new Stadium[4];
-        stadiums[0] = new Stadium();
-        stadiums[1] = new Stadium("CityStadium", 1000, 450, "Blue team", "RedTeam");
-        stadiums[2] = getInstance();
-        stadiums[3] = getInstance();
-        for (Stadium stadium : stadiums) {
-            System.out.println(stadium);
-        }
+    @Override
+    public String getSupportedSports() {
+        return "1. Handball , 2. Volleyball , 3. Basketball";
     }
 }
