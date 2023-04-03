@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class FootballField extends SportComplex{
+public class FootballField extends SportComplex {
 
     private int length;
     private int width;
@@ -24,7 +24,7 @@ public class FootballField extends SportComplex{
     }
 
     @Override
-    public String getSupportedSports() {
-        return "1. Football match";
+    public SportTypes[] getSupportedSports() {
+        return new SportTypes[]{SportTypes.FOOTBALL};
     }
 }

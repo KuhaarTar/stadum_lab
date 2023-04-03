@@ -1,9 +1,6 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
+import lombok.*;
 
 @Setter
 @Getter
@@ -11,10 +8,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 
-abstract class SportComplex  {
+abstract class SportComplex {
     private String name;
     private int capacity;
     private int currentAttendance;
 
-    public abstract String getSupportedSports();
+    public abstract SportTypes[] getSupportedSports();
 }

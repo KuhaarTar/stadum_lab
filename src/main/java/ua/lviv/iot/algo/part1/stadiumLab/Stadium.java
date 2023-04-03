@@ -16,48 +16,47 @@ public class Stadium extends SportComplex {
     private String homeTeam;
     private String awayTeam;
     private static Stadium instance;
+    private SportTypes[] sportTypes = new SportTypes[10];
 
-    public Stadium(String name, int capacity, int currentAttendance, String homeTeam, String awayTeam) {
+
+    public Stadium(String name, int capacity,
+                   int currentAttendance, String homeTeam,
+                   String awayTeam, SportTypes... types) {
         this.name = name;
         this.capacity = capacity;
         this.currentAttendance = currentAttendance;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        this.sportTypes = types;
     }
 
-    static Stadium getInstance() {
+    public static Stadium getInstance() {
         if (instance == null) {
             instance = new Stadium();
         }
         return instance;
     }
 
-    void addAttendies(int count) {
+    public void addAttendies(int count) {
         if (currentAttendance != capacity) {
             currentAttendance += count;
-        } else {
-            System.out.println("Stadium is full");
         }
     }
 
-    void decreaseAttendance() {
-        if (currentAttendance - 100 < 0) {
-            currentAttendance = 0;
-        } else {
-            currentAttendance = currentAttendance - 100;
-        }
+    public void decreaseAttendance() {
+        currentAttendance = Math.max(currentAttendance - 100, 0);
     }
 
-    void changeHomeTeam(String teamName) {
+    public void changeHomeTeam(String teamName) {
         homeTeam = teamName;
     }
 
-    void changeAwayTeam(String teamName) {
+    public void changeAwayTeam(String teamName) {
         awayTeam = teamName;
     }
 
     @Override
-    public String getSupportedSports() {
-        return "1. Handball , 2. Volleyball , 3. Basketball";
+    public SportTypes[] getSupportedSports() {
+        return sportTypes;
     }
 }
