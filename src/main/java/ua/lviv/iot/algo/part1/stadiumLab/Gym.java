@@ -23,7 +23,7 @@ public class Gym extends SportComplex {
     }
 
     @Override
-    public String getSupportedSports() {
-        return "1. Powerlifting ";
+    public SportTypes[] getSupportedSports() {
+        return null;
     }
 }
