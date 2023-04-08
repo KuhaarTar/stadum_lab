@@ -4,5 +4,6 @@ public enum SportTypes {
     FOOTBALL,
     HANDBALL,
     BASKETBALL,
-    SWIMMING;
+    SWIMMING,
+    BOX;
 }

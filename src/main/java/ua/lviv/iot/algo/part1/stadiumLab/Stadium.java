@@ -37,22 +37,32 @@ public class Stadium extends SportComplex {
         return instance;
     }
 
-    public void addAttendies(int count) {
+    public int addAttendies(int count) {
         if (currentAttendance != capacity) {
             currentAttendance += count;
+            return currentAttendance;
         }
+        return currentAttendance;
     }
 
-    public void decreaseAttendance() {
-        currentAttendance = Math.max(currentAttendance - 100, 0);
+    public int decreaseAttendance() {
+        if (currentAttendance - 100 < 0) {
+            currentAttendance = 0;
+            return currentAttendance;
+        } else {
+            currentAttendance = currentAttendance - 100;
+        }
+        return currentAttendance;
     }
 
-    public void changeHomeTeam(String teamName) {
+    public String changeHomeTeam(String teamName) {
         homeTeam = teamName;
+        return homeTeam;
     }
 
-    public void changeAwayTeam(String teamName) {
+    public String changeAwayTeam(String teamName) {
         awayTeam = teamName;
+        return awayTeam;
     }
 
     @Override
