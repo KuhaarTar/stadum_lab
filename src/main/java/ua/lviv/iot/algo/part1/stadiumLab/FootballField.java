@@ -15,8 +15,8 @@ public class FootballField extends SportComplex {
     private int width;
     private String typeFieldCoverage;
 
-    public FootballField(String name, int capacity, int currentAttendance,
-                         int length, int width, String typeFieldCoverage) {
+    public FootballField(final String name, final int capacity, final int currentAttendance,
+                         final int length, final int width, final String typeFieldCoverage) {
         super(name, capacity, currentAttendance);
         this.length = length;
         this.width = width;

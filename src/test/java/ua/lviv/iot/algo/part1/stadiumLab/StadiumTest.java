@@ -3,10 +3,8 @@ package ua.lviv.iot.algo.part1.stadiumLab;
 import lombok.EqualsAndHashCode;
 import lombok.var;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @EqualsAndHashCode
 public class StadiumTest {
@@ -19,7 +17,7 @@ public class StadiumTest {
     }
     @Test
     public void testAddAttendiesWhenNotFull() {
-        Stadium sportComplex = new Stadium("Stadium", 1000, 500 ,"null","null",list[9]);
+        Stadium sportComplex = new Stadium("Stadium", 1000, 500 ,"null", "null", list[9]);
         int result = sportComplex.addAttendies(100);
         assertEquals(600, result);
         assertEquals(600, sportComplex.getCurrentAttendance());

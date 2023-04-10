@@ -1,5 +1,6 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,20 +32,27 @@ public class SportComplexManagerTest{
         Collections.addAll(sportComplexes,sportComplex1,sportComplex2,sportComplex3,sportComplex4);
         manager = new SportComplexManager(sportComplexes);
     }
+
     @Test
-    public void testFindAllWithCapacityGreaterThan(){
-        Collections.addAll(res,sportComplex1,sportComplex2,sportComplex3);
-        assertEquals(res,manager.findAllWithCapacityGreaterThan(1000));
+    public void testFindAllWithCapacityGreaterThan() {
+        assertEquals(res, manager.findAllWithCapacityGreaterThan(1000));
     }
+
 
     @Test
     public void testFindAllByName(){
-        Collections.addAll(res,sportComplex4);
         assertEquals(res,manager.findAllByName("Fitness club"));
     }
 
     @Test
-    public void tesPrintSportComplex(){
-        assertEquals(sportComplexes,manager.printSportComplexes());
+    public void testPrintSportComplex() {
+        assertEquals(res, manager.printSportComplexes());
+    }
+
+
+    @Test
+    public void testAddSportComplex(){
+        manager.addSportComplex(sportComplex1);
+        assertEquals(4,sportComplexes.size());
     }
 }

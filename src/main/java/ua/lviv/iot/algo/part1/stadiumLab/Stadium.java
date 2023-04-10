@@ -19,9 +19,9 @@ public class Stadium extends SportComplex {
     private SportTypes[] sportTypes = new SportTypes[10];
 
 
-    public Stadium(String name, int capacity,
-                   int currentAttendance, String homeTeam,
-                   String awayTeam, SportTypes... types) {
+    public Stadium(final String name ,final int capacity,
+                    final int currentAttendance, final String homeTeam,
+                    final String awayTeam, SportTypes... types) {
         this.name = name;
         this.capacity = capacity;
         this.currentAttendance = currentAttendance;
@@ -37,7 +37,7 @@ public class Stadium extends SportComplex {
         return instance;
     }
 
-    public int addAttendies(int count) {
+    public int addAttendies(final int count) {
         if (currentAttendance != capacity) {
             currentAttendance += count;
             return currentAttendance;
@@ -55,12 +55,12 @@ public class Stadium extends SportComplex {
         return currentAttendance;
     }
 
-    public String changeHomeTeam(String teamName) {
+    public String changeHomeTeam(final String teamName) {
         homeTeam = teamName;
         return homeTeam;
     }
 
-    public String changeAwayTeam(String teamName) {
+    public String changeAwayTeam(final String teamName) {
         awayTeam = teamName;
         return awayTeam;
     }

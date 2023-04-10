@@ -3,7 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ua.lviv.iot.algo.part1.stadiumLab</groupId>
   <artifactId>Stadium</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Stadium</name>
+  <url>https://maven.apache.org</url>
   <packaging>jar</packaging>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <reporting>
     <plugins>
           <plugin>
@@ -14,33 +21,44 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.1</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
       </plugin>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
         <version>4.4.2</version>
-        <reportSets>
-          <reportSet>
-            <reports>
-              <report>spotbugs</report>
-            </reports>
-          </reportSet>
-        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version>
       </plugin>
     </plugins>
   </reporting>
   <build>
     <plugins>
       <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.4.2</version>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version>
         <executions>
           <execution>
-            <phase>verify</phase>
             <goals>
-              <goal>check</goal>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
             </goals>
           </execution>
         </executions>
@@ -48,17 +66,37 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
         <configuration>
-          <source>7</source>
-          <target>7</target>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.2.2</version>
+        <configuration>
+          <includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
+          <excludeFilterFile>spotbugs-security-exclude.xml</excludeFilterFile>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.12.0</version>ь
+            </plugin>
+          </plugins>
         </configuration>
       </plugin>
     </plugins>
   </build>
-  <version>1.0-SNAPSHOT</version>
-  <name>Stadium</name>
-  <url>https://maven.apache.org</url>
   <dependencies>
+    <dependency>
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs</artifactId>
+      <version>4.4.2</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -70,11 +108,6 @@
       <artifactId>junit-vintage-engine</artifactId>
       <version>5.9.2</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs</artifactId>
-      <version>4.7.3</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>

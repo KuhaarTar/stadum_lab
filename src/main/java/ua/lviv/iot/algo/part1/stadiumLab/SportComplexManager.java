@@ -7,30 +7,28 @@ import java.util.stream.Collectors;
 public class SportComplexManager {
     private List<SportComplex> sportComplexes = new ArrayList<>();
 
-    public SportComplexManager(List<SportComplex> sportComplexes) {
+    public SportComplexManager(final List<SportComplex> sportComplexes) {
         this.sportComplexes = sportComplexes;
     }
+
     public void addSportComplex(final SportComplex sportComplex) {
         sportComplexes.add(sportComplex);
     }
 
-    public List<SportComplex> findAllWithCapacityGreaterThan(int capacity) {
+    public List<SportComplex> findAllWithCapacityGreaterThan(final int capacity) {
         return sportComplexes.stream()
                 .filter(s -> s.getCapacity() >= capacity)
                 .collect(Collectors.toList());
 
     }
 
-    public List<SportComplex> findAllByName(String name) {
+    public List<SportComplex> findAllByName(final String name) {
         return sportComplexes.stream()
-                .filter(s -> s.getName() == name)
+                .filter(s -> s.getName().equals(name))
                 .collect(Collectors.toList());
     }
 
     public List<SportComplex> printSportComplexes() {
-        for(SportComplex sportComplex: sportComplexes){
-            System.out.println(sportComplex.toString());
-        }
         return sportComplexes;
     }
 }

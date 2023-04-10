@@ -3,7 +3,9 @@ package ua.lviv.iot.algo.part1.stadiumLab;
 import lombok.var;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class FootballFieldTest {
     @Test
@@ -13,4 +15,5 @@ public class FootballFieldTest {
         assertNotNull(testArr);
         assertEquals(1, testArr.length);
         assertArrayEquals(new SportTypes[]{SportTypes.FOOTBALL}, testArr);
-    }}
+    }
+}
