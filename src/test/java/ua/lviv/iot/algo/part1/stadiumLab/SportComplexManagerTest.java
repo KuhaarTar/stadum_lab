@@ -35,24 +35,25 @@ public class SportComplexManagerTest{
 
     @Test
     public void testFindAllWithCapacityGreaterThan() {
+        Collections.addAll(res,sportComplex1,sportComplex2,sportComplex3);
         assertEquals(res, manager.findAllWithCapacityGreaterThan(1000));
     }
 
-
     @Test
     public void testFindAllByName(){
+        Collections.addAll(res,sportComplex4);
         assertEquals(res,manager.findAllByName("Fitness club"));
     }
 
     @Test
     public void testPrintSportComplex() {
+        Collections.addAll(res,sportComplex1,sportComplex2,sportComplex3,sportComplex4);
         assertEquals(res, manager.printSportComplexes());
     }
-
 
     @Test
     public void testAddSportComplex(){
         manager.addSportComplex(sportComplex1);
-        assertEquals(4,sportComplexes.size());
+        assertEquals(5,sportComplexes.size());
     }
 }
