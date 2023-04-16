@@ -1,6 +1,5 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
 
-import lombok.var;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;

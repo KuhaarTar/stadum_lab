@@ -1,7 +1,6 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
 
 import lombok.EqualsAndHashCode;
-import lombok.var;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

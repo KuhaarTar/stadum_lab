@@ -69,4 +69,17 @@ public class Stadium extends SportComplex {
     public SportTypes[] getSupportedSports() {
         return sportTypes;
     }
+
+    @Override
+    public String getClassName() {
+        return "Stadium";
+    }
+
+    public String getHeaders(){
+        return super.getHeaders()+"  , homeTeam ,awayTeam";
+    }
+
+    public String toCSV(){
+        return super.toCSV() +","+getHomeTeam() +","+getAwayTeam();
+    }
 }
