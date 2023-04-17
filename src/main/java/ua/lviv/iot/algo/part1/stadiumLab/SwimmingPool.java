@@ -14,12 +14,13 @@ public class SwimmingPool extends SportComplex {
     private int volumeOfThePool;
     private int maximumNumberOfCompetition;
 
-    public SwimmingPool(String name, int capacity, int currentAttendance,
-                        int numberOfShowerRooms, int volumeOfThePool, int maximumNumberOfParticipantsInCompetition) {
+    public SwimmingPool(final String name, final int capacity, final int currentAttendance,
+                         final int numberOfShowerRooms, final int volumeOfThePool, final int maximumNumberOfParticipantsInCompetition) {
         super(name, capacity, currentAttendance);
         this.numberOfShowerRooms = numberOfShowerRooms;
         this.volumeOfThePool = volumeOfThePool;
-        this.maximumNumberOfCompetition = maximumNumberOfParticipantsInCompetition;
+        this.maximumNumberOfCompetition
+                = maximumNumberOfParticipantsInCompetition;
     }
 
     @Override

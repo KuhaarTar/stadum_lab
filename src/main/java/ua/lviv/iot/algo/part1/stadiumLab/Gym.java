@@ -14,8 +14,8 @@ public class Gym extends SportComplex {
     private String monthlySubscriptionFee;
     private int countOfCoach;
 
-    public Gym(String name, int capacity, int currentAttendance,
-               int countOfSimulator, String monthlySubscriptionFee, int countOfCoach) {
+    public Gym(final String name, final int capacity, final int currentAttendance,
+               final int countOfSimulator, final String monthlySubscriptionFee, final int countOfCoach) {
         super(name, capacity, currentAttendance);
         this.countOfSimulator = countOfSimulator;
         this.monthlySubscriptionFee = monthlySubscriptionFee;
@@ -23,7 +23,7 @@ public class Gym extends SportComplex {
     }
 
     @Override
-    public String getSupportedSports() {
-        return "1. Powerlifting ";
+    public SportTypes[] getSupportedSports() {
+        return new SportTypes[]{SportTypes.BOX};
     }
 }
