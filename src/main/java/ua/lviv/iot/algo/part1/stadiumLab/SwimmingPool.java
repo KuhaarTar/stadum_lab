@@ -27,4 +27,17 @@ public class SwimmingPool extends SportComplex {
     public SportTypes[] getSupportedSports() {
         return new SportTypes[]{SportTypes.SWIMMING};
     }
+
+    @Override
+    public String getClassName() {
+        return "SwimmingPool";
+    }
+
+    public String getHeaders(){
+        return super.getHeaders()+" , numberOfShowerRooms ,volumeOfThePool ,maximumNumberOfCompetition";
+    }
+
+    public String toCSV(){
+        return super.toCSV()+","+getNumberOfShowerRooms()+","+getVolumeOfThePool()+","+getMaximumNumberOfCompetition();
+    }
 }

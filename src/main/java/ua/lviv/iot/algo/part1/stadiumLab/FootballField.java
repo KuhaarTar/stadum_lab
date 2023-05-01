@@ -27,4 +27,17 @@ public class FootballField extends SportComplex {
     public SportTypes[] getSupportedSports() {
         return new SportTypes[]{SportTypes.FOOTBALL};
     }
+
+    @Override
+    public String getClassName() {
+        return "FootballField";
+    }
+
+    public String getHeaders(){
+        return  super.getHeaders() +"  , length ,width ,typeFieldCoverage";
+    }
+
+    public String toCSV(){
+        return super.toCSV()+","+getLength()+","+getWidth()+","+getTypeFieldCoverage();
+    }
 }

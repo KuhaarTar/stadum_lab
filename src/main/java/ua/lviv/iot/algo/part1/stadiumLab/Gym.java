@@ -26,4 +26,17 @@ public class Gym extends SportComplex {
     public SportTypes[] getSupportedSports() {
         return new SportTypes[]{SportTypes.BOX};
     }
+
+    @Override
+    public String getClassName() {
+        return "Gym";
+    }
+
+    public String getHeaders(){
+        return super.getHeaders()+"  , countOfSimulator, monthlySubscriptionFee, countOfCoach";
+    }
+
+    public String toCSV(){
+        return super.toCSV()+" ,"+getCountOfSimulator()+" ,"+getCountOfCoach()+","+getMonthlySubscriptionFee();
+    }
 }

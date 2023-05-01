@@ -1,11 +1,10 @@
 package ua.lviv.iot.algo.part1.stadiumLab;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class SportComplexManager {
-    private List<SportComplex> sportComplexes = new ArrayList<>();
+    private final List<SportComplex> sportComplexes;
 
     public SportComplexManager(final List<SportComplex> sportComplexes) {
         this.sportComplexes = sportComplexes;

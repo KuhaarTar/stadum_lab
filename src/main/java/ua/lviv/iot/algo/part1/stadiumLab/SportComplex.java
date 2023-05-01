@@ -12,10 +12,19 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 
-abstract class SportComplex {
+public abstract class SportComplex {
     private String name;
     private int capacity;
     private int currentAttendance;
 
     public abstract SportTypes[] getSupportedSports();
+
+    public abstract String getClassName();
+
+    public String getHeaders(){
+        return " name, capacity , currentAttendance";
+    }
+    public String toCSV(){
+        return getName() + " ," + getCapacity() + " ," +getCurrentAttendance();
+    }
 }
