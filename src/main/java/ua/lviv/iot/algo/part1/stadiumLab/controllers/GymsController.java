@@ -64,7 +64,7 @@ public class GymsController {
             gymService.updateGym(id, gym);
             return ResponseEntity.noContent().build();
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(gym);
         }
     }
 }
