@@ -1,8 +1,6 @@
 package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.algo.part1.stadiumLab.models.SportTypes;
-import ua.lviv.iot.algo.part1.stadiumLab.models.SwimmingPool;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,11 +1,6 @@
 package ua.lviv.iot.algo.part1.stadiumLab.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import ua.lviv.iot.algo.part1.stadiumLab.models.SportTypes;
+import lombok.*;
 
 @Setter
 @Getter

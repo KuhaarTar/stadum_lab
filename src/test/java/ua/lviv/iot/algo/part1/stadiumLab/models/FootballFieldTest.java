@@ -1,12 +1,8 @@
 package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.algo.part1.stadiumLab.models.FootballField;
-import ua.lviv.iot.algo.part1.stadiumLab.models.SportTypes;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FootballFieldTest {
     @Test

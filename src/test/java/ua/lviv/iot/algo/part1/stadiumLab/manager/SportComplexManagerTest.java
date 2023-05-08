@@ -2,7 +2,6 @@ package ua.lviv.iot.algo.part1.stadiumLab.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ua.lviv.iot.algo.part1.stadiumLab.manager.SportComplexManager;
 import ua.lviv.iot.algo.part1.stadiumLab.models.*;
 
 import java.util.ArrayList;

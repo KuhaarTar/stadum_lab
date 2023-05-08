@@ -5,5 +5,5 @@ public enum SportTypes {
     HANDBALL,
     BASKETBALL,
     SWIMMING,
-    BOX;
+    BOX
 }

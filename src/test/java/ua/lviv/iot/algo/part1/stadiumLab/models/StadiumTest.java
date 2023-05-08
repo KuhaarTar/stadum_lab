@@ -2,8 +2,6 @@ package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import lombok.EqualsAndHashCode;
 import org.junit.Test;
-import ua.lviv.iot.algo.part1.stadiumLab.models.SportTypes;
-import ua.lviv.iot.algo.part1.stadiumLab.models.Stadium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

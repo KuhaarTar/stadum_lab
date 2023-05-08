@@ -2,46 +2,35 @@ package ua.lviv.iot.algo.part1.stadiumLab.writer;
 
 import ua.lviv.iot.algo.part1.stadiumLab.models.SportComplex;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.io.FileWriter;
-import java.util.Map;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class SportComplexWriter {
     private final static String FILENAME = "table.csv";
-    private final static Map<String,List<SportComplex>> map = new HashMap<>();
-
+    private final static List<String> printedClasses = new ArrayList<>();
     public void writeToFile(List<SportComplex> sportComplexes) {
         if (sportComplexes.isEmpty()) {
             return;
         }
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(FILENAME);
-        for(SportComplex sportComplex:sportComplexes) {
-            if (map.containsKey(sportComplex.getClassName())) {
-                map.get(sportComplex.getClassName()).add(sportComplex);
-            }else {
-                List<SportComplex> list = new LinkedList<>();
-                list.add(sportComplex);
-                map.put(sportComplex.getClassName(),list);
-            }
-        }
-        for (Map.Entry<String, List<SportComplex>> entry : map.entrySet()) {
-            String header = entry.getValue().get(0).getHeaders();
-            fileWriter.write(header);
-            fileWriter.write("\n");
-            for (SportComplex sportComplex: entry.getValue() ){
+        sportComplexes.sort(Comparator.comparing(g -> g.getClass().getName()));
+        try( FileWriter fileWriter = new FileWriter(FILENAME);) {
+            for (SportComplex sportComplex : sportComplexes) {
+                String className = sportComplex.getClass().getName();
+                if (!printedClasses.contains(className)) {
+                    String header = sportComplex.getHeaders();
+                    fileWriter.write(header);
+                    fileWriter.write("\n");
+                    printedClasses.add(className);
+                }
                 String csv = sportComplex.toCSV();
                 fileWriter.write(csv);
                 fileWriter.write("\n");
             }
-        }
-        fileWriter.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
         }
     }
 }
