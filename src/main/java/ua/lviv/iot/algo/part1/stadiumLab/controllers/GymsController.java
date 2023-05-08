@@ -16,7 +16,7 @@ import ua.lviv.iot.algo.part1.stadiumLab.models.Gym;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gyms")
+@RequestMapping("/gym")
 public class GymsController {
     private final GymService gymService;
 
@@ -35,13 +35,13 @@ public class GymsController {
         }
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public ResponseEntity<List<Gym>> getAllGyms() {
         List<Gym> gyms = gymService.getAllGyms();
         return ResponseEntity.ok(gyms);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public ResponseEntity<Gym> saveGym(@RequestBody final Gym obj) {
         Gym savedGym = gymService.saveGym(obj);
         return ResponseEntity.ok(savedGym);
@@ -49,8 +49,12 @@ public class GymsController {
 
     @DeleteMapping("/:{id}")
     public ResponseEntity<Gym> deleteGym(@PathVariable("id") final Integer id) {
-        gymService.deleteGym(id);
-        return ResponseEntity.noContent().build();
+        Gym deletedGym = gymService.deleteGym(id);
+        if(deletedGym == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.noContent().build();
+        }
     }
 
     @PutMapping("/:{id}")

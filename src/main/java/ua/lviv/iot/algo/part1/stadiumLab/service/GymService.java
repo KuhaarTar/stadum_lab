@@ -29,8 +29,10 @@ public class GymService {
         return obj;
     }
 
-    public void deleteGym(final Integer id) {
+    public Gym deleteGym(final Integer id) {
+        Gym test = gyms.get(id);
         gyms.remove(id);
+        return test;
     }
 
     public void updateGym(final Integer id, final Gym obj) {
