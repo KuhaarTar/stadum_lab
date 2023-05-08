@@ -13,28 +13,28 @@ import java.util.Map;
 @Scope("singleton")
 public class GymService {
     private Integer nextAvailable = 1;
-    private final Map<Integer, Gym> gymMap = new HashMap<>();
+    private final Map<Integer, Gym> gyms = new HashMap<>();
 
     public Gym getGymsById(final int id) {
-        return gymMap.get(id);
+        return gyms.get(id);
     }
 
     public List<Gym> getAllGyms() {
-        return new LinkedList<>(gymMap.values());
+        return new LinkedList<>(gyms.values());
     }
 
     public Gym saveGym(final Gym obj) {
         obj.setId(nextAvailable++);
-        gymMap.put(obj.getId(), obj);
+        gyms.put(obj.getId(), obj);
         return obj;
     }
 
     public void deleteGym(final Integer id) {
-        gymMap.remove(id);
+        gyms.remove(id);
     }
 
     public void updateGym(final Integer id, final Gym obj) {
         obj.setId(id);
-        gymMap.put(id, obj);
+        gyms.put(id, obj);
     }
 }

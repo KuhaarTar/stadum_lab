@@ -16,7 +16,7 @@ import ua.lviv.iot.algo.part1.stadiumLab.models.Gym;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gym")
+@RequestMapping("/gyms")
 public class GymsController {
     private final GymService gymService;
 
@@ -25,7 +25,7 @@ public class GymsController {
         this.gymService = gymService;
     }
 
-    @GetMapping("/gyms/:{id}")
+    @GetMapping("/:{id}")
     public ResponseEntity<Gym> getAlligatorById(@PathVariable("id") final Integer id) {
         Gym gym = gymService.getGymsById(id);
         if (gym == null) {
@@ -35,25 +35,25 @@ public class GymsController {
         }
     }
 
-    @GetMapping("/gyms")
+    @GetMapping("/")
     public ResponseEntity<List<Gym>> getAllGyms() {
         List<Gym> gyms = gymService.getAllGyms();
         return ResponseEntity.ok(gyms);
     }
 
-    @PostMapping("/gyms")
+    @PostMapping("/")
     public ResponseEntity<Gym> saveGym(@RequestBody final Gym obj) {
         Gym savedGym = gymService.saveGym(obj);
         return ResponseEntity.ok(savedGym);
     }
 
-    @DeleteMapping("/gyms/:{id}")
+    @DeleteMapping("/:{id}")
     public ResponseEntity<Gym> deleteGym(@PathVariable("id") final Integer id) {
         gymService.deleteGym(id);
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/gyms/:{id}")
+    @PutMapping("/:{id}")
     public ResponseEntity<Gym> updateGym(@PathVariable("id") final Integer id, @RequestBody final Gym obj) {
         Gym gym = gymService.getGymsById(id);
         if (gym != null) {
