@@ -1,0 +1,10 @@
+ name, capacity , currentAttendance  , length ,width ,typeFieldCoverage
+Silmash ,200 ,50,300,100,Natural grass
+ name, capacity , currentAttendance  , countOfSimulator, monthlySubscriptionFee, countOfCoach
+UprisingTiger ,300 ,100 ,150 ,7,5$
+UprisingTiger ,300 ,100 ,150 ,7,5$
+ name, capacity , currentAttendance  , homeTeam ,awayTeam
+Olympic stadium ,10000 ,8540,Team of dragons,Team of Black
+ name, capacity , currentAttendance , numberOfShowerRooms ,volumeOfThePool ,maximumNumberOfCompetition
+Lviv central pool ,200 ,50,20,50,5
+Lviv central pool ,200 ,50,20,50,5
