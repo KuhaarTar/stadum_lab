@@ -26,7 +26,7 @@ public class GymsController {
     }
 
     @GetMapping("/:{id}")
-    public ResponseEntity<Gym> getAlligatorById(@PathVariable("id") final Integer id) {
+    public ResponseEntity<Gym> getGymsById(@PathVariable("id") final Integer id) {
         Gym gym = gymService.getGymsById(id);
         if (gym == null) {
             return ResponseEntity.notFound().build();
@@ -42,8 +42,8 @@ public class GymsController {
     }
 
     @PostMapping()
-    public ResponseEntity<Gym> saveGym(@RequestBody final Gym obj) {
-        Gym savedGym = gymService.saveGym(obj);
+    public ResponseEntity<Gym> saveGym(@RequestBody final Gym gym) {
+        Gym savedGym = gymService.saveGym(gym);
         return ResponseEntity.ok(savedGym);
     }
 
@@ -58,10 +58,10 @@ public class GymsController {
     }
 
     @PutMapping("/:{id}")
-    public ResponseEntity<Gym> updateGym(@PathVariable("id") final Integer id, @RequestBody final Gym obj) {
-        Gym gym = gymService.getGymsById(id);
-        if (gym != null) {
-            gymService.updateGym(id, obj);
+    public ResponseEntity<Gym> updateGym(@PathVariable("id") final Integer id, @RequestBody final Gym gym) {
+        Gym gymsById = gymService.getGymsById(id);
+        if (gymsById != null) {
+            gymService.updateGym(id, gym);
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

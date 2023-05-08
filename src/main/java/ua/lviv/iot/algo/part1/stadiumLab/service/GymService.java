@@ -23,10 +23,10 @@ public class GymService {
         return new LinkedList<>(gyms.values());
     }
 
-    public Gym saveGym(final Gym obj) {
-        obj.setId(nextAvailable++);
-        gyms.put(obj.getId(), obj);
-        return obj;
+    public Gym saveGym(final Gym gym) {
+        gym.setId(nextAvailable++);
+        gyms.put(gym.getId(), gym);
+        return gym;
     }
 
     public Gym deleteGym(final Integer id) {
@@ -35,8 +35,8 @@ public class GymService {
         return test;
     }
 
-    public void updateGym(final Integer id, final Gym obj) {
-        obj.setId(id);
-        gyms.put(id, obj);
+    public void updateGym(final Integer id, final Gym gym) {
+        gym.setId(id);
+        gyms.put(id, gym);
     }
 }
