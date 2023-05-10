@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.stadiumLab;
+package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import lombok.EqualsAndHashCode;
 import org.junit.Test;
@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @EqualsAndHashCode
 public class StadiumTest {
-    private SportTypes [] list = new SportTypes[10];
+    private SportTypes[] list = new SportTypes[10];
 
     @Test
     public void testGetInstance() {

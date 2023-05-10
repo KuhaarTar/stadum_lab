@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.stadiumLab;
+package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import org.junit.jupiter.api.Test;
 

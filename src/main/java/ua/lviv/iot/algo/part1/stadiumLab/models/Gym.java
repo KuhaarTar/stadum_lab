@@ -1,15 +1,19 @@
-package ua.lviv.iot.algo.part1.stadiumLab;
+package ua.lviv.iot.algo.part1.stadiumLab.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.stereotype.Component;
 
 @Setter
 @Getter
-@NoArgsConstructor
+@Component
+@AllArgsConstructor
 @ToString(callSuper = true)
-public class Gym extends SportComplex {
+public class Gym extends SportComplex{
+
+    private Integer id;
     private int countOfSimulator;
     private String monthlySubscriptionFee;
     private int countOfCoach;
@@ -38,5 +42,8 @@ public class Gym extends SportComplex {
 
     public String toCSV(){
         return super.toCSV()+" ,"+getCountOfSimulator()+" ,"+getCountOfCoach()+","+getMonthlySubscriptionFee();
+    }
+    public Gym() {
+        id = 0;
     }
 }

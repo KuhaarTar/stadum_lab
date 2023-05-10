@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.stadiumLab;
+package ua.lviv.iot.algo.part1.stadiumLab.models;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
